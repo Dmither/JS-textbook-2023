@@ -18,7 +18,7 @@
 Мова JavaScript була створена для браузера, зараз її використовують в інших середовищах. JavaScript найбільш поширена для браузера, повністю інтегрована з HTML/CSS. Багато мов “транспілюються” в JavaScript і надають певні функції.
 
 Довідники:  
-[Специфікація ECMA-262](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/)
+[Специфікація ECMA-262](https://www.ecma-international.org/publications-and-standards/standards/ecma-262/)  
 [MDN JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference)  
 [Таблиця сумісності Caniuse](caniuse.com)
 
@@ -29,3 +29,11 @@
 
 ### Основи JavaScript {#1-2}
 
+Запуск із Node.js: `node index.js`.  
+Запуск браузером: `<script>` код всередині тега.  
+Запуск браузером зі стороннього файлу: `<script src="">` .
+
+Програма складається з інструкцій, бажано розділяти `;`.  
+Коментарі ігноруються та видаляються обробниками `//`, `/* */`.
+
+Суворий режим додає сучасні функції. Напочатку вказати `"use strict"`.
