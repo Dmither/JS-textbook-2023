@@ -1,5 +1,5 @@
-alert("I am JavaScript!");
-alert("I am JavaScript!");
-alert("I am JavaScript!");
-alert("I am JavaScript!");
-alert("I am JavaScript!");
+function sayHi() {
+  console.log("Hi!");
+}
+
+console.log(sayHi)
