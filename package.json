@@ -1,0 +1,24 @@
+{
+  "name": "js-textbook-2023",
+  "version": "1.0.0",
+  "description": "Нотатки електронного підручника, розміщеного за адресою: https://uk.javascript.info/",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dmither/JS-textbook-2023.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dmither/JS-textbook-2023/issues"
+  },
+  "homepage": "https://github.com/Dmither/JS-textbook-2023#readme",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "sinon": "^15.0.3"
+  }
+}
