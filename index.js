@@ -7,3 +7,24 @@ function pow(x, n) {
 
   return result;
 }
+
+
+let menu = {
+  width: 200,
+  height: 300,
+  title: "Моє меню"
+};
+
+function multyplyNumeric(obj) {
+  for (const key in obj) {
+    if (typeof obj[key] == "number") {
+      obj[key] *= 2;
+    }
+  }
+}
+
+console.log(menu);
+
+multyplyNumeric(menu);
+
+console.log(menu);
