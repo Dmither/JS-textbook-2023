@@ -1,21 +1,34 @@
-let range = {
-	from: 1,
-	to: 5,
+// function unique(arr) {
+//   return Array.from(new Set(arr));
+// }
 
-	[Symbol.iterator]() {
-		this.current = this.from;
-		return this;
-	},
+// let values = ["Hare", "Krishna", "Hare", "Krishna",
+//   "Krishna", "Krishna", "Hare", "Hare", ":-O"
+// ];
 
-	next() {
-		if (this.current <= this.to) {
-			return { done: false, value: this.current++ };
-		} else {
-			return { done: true };
-		}
-	}
-}
+// console.log( unique(values) );
 
-for (let num of range) {
-	console.log(num)
-}
+// function aclean (arr) {
+//   let map = new Map();
+
+//   for (let i in arr) {
+//     let sorted = arr[i].toLowerCase().split("").sort().join("");
+//     map.set(sorted, arr[i]);
+//   }
+
+//   return Array.from(map.values());
+// }
+
+// let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+
+// console.log( aclean(arr) ); 
+
+let map = new Map();
+
+map.set("name", "John");
+
+let keys = Array.from(map.keys());
+
+keys.push("more");
+
+console.log(keys)
