@@ -1,34 +1,18 @@
-// function unique(arr) {
-//   return Array.from(new Set(arr));
-// }
+let messages = [
+  {text: "Привіт", from: "Іван"},
+  {text: "Як справи?", from: "Іван"},
+  {text: "До зустрічі", from: "Аліса"}
+];
 
-// let values = ["Hare", "Krishna", "Hare", "Krishna",
-//   "Krishna", "Krishna", "Hare", "Hare", ":-O"
-// ];
+let weakSet = new WeakSet();
+let weakMap = new WeakMap();
 
-// console.log( unique(values) );
+function readMessage(message) {
+  weakSet.add(message);
+  weakMap.set(message, new Date());
+}
 
-// function aclean (arr) {
-//   let map = new Map();
+readMessage(messages[0]);
+readMessage(messages[2]);
 
-//   for (let i in arr) {
-//     let sorted = arr[i].toLowerCase().split("").sort().join("");
-//     map.set(sorted, arr[i]);
-//   }
-
-//   return Array.from(map.values());
-// }
-
-// let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
-
-// console.log( aclean(arr) ); 
-
-let map = new Map();
-
-map.set("name", "John");
-
-let keys = Array.from(map.keys());
-
-keys.push("more");
-
-console.log(keys)
+console.log(weakMap)
