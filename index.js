@@ -1,18 +1,30 @@
-let messages = [
-  {text: "Привіт", from: "Іван"},
-  {text: "Як справи?", from: "Іван"},
-  {text: "До зустрічі", from: "Аліса"}
-];
+// let salaries = {
+//   "Іван": 100,
+//   "Петро": 300,
+//   "Марія": 250
+// };
 
-let weakSet = new WeakSet();
-let weakMap = new WeakMap();
+// function sumSalaries(salaries) {
+//   let sum = 0;
+//   let map = new Map(Object.entries(salaries));
+//   for (let item of map.values()) {
+//     sum += item;
+//   }
+//   return sum;
+// }
 
-function readMessage(message) {
-  weakSet.add(message);
-  weakMap.set(message, new Date());
+// console.log( sumSalaries(salaries) );
+
+
+let user = {
+  name: 'Іван',
+  age: 30
+};
+
+function count(obj) {
+  let set = new Set(Object.keys(obj));
+
+  return set.size;
 }
 
-readMessage(messages[0]);
-readMessage(messages[2]);
-
-console.log(weakMap)
+console.log( count(user) )
