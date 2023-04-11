@@ -1,30 +1,19 @@
-// let salaries = {
-//   "Іван": 100,
-//   "Петро": 300,
-//   "Марія": 250
-// };
-
-// function sumSalaries(salaries) {
-//   let sum = 0;
-//   let map = new Map(Object.entries(salaries));
-//   for (let item of map.values()) {
-//     sum += item;
-//   }
-//   return sum;
-// }
-
-// console.log( sumSalaries(salaries) );
-
-
-let user = {
-  name: 'Іван',
-  age: 30
+let salaries = {
+  "Іван": 100,
+  "Петро": 300,
+  "Марія": 250
 };
 
-function count(obj) {
-  let set = new Set(Object.keys(obj));
-
-  return set.size;
+function topSalary(salaries) {
+  let max = 0;
+  let maxName = null;
+  for (let [key, value] of Object.entries(salaries)) {
+    if (value > max) {
+      maxName = key;
+      max = value;
+    } 
+  }
+  return maxName;
 }
 
-console.log( count(user) )
+console.log(topSalary(salaries));
