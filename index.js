@@ -1,19 +1,9 @@
-let salaries = {
-  "Іван": 100,
-  "Петро": 300,
-  "Марія": 250
-};
+let date = new Date();
 
-function topSalary(salaries) {
-  let max = 0;
-  let maxName = null;
-  for (let [key, value] of Object.entries(salaries)) {
-    if (value > max) {
-      maxName = key;
-      max = value;
-    } 
-  }
-  return maxName;
+function getDateAgo(date, days) {
+	let newDate = new Date(date);
+  newDate.setDate(date.getDate() - days);
+  return newDate;
 }
 
-console.log(topSalary(salaries));
+console.log(getDateAgo(date, 366));
