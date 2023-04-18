@@ -1,9 +1,17 @@
-let date = new Date();
+let room = {
+  number: 23
+};
 
-function getDateAgo(date, days) {
-	let newDate = new Date(date);
-  newDate.setDate(date.getDate() - days);
-  return newDate;
-}
+let meetup = {
+  title: "Конференція",
+  occupiedBy: [{name: "Іван"}, {name: "Аліса"}],
+  place: room
+};
 
-console.log(getDateAgo(date, 366));
+// циклічне посилання
+room.occupiedBy = meetup;
+meetup.self = meetup;
+
+console.log( JSON.stringify(meetup, function replacer(key, value) {
+  return (key != "" && value == meetup) ? undefined : value
+}));
