@@ -1,17 +1,35 @@
-let room = {
-  number: 23
+let list = {
+	value: 1,
+	next: {
+		value: 2,
+		next: {
+			value: 3,
+			next: {
+				value: 4,
+				next: null,
+			},
+		},
+	},
 };
 
-let meetup = {
-  title: "Конференція",
-  occupiedBy: [{name: "Іван"}, {name: "Аліса"}],
-  place: room
-};
+function printList(list) {
+	let arr = [list.value];
+	let current = list;
+  while (current.next) {
+    current = current.next;
+    arr.push(current.value);
+  }
+  return arr;
+}
 
-// циклічне посилання
-room.occupiedBy = meetup;
-meetup.self = meetup;
+console.log(printList(list));
 
-console.log( JSON.stringify(meetup, function replacer(key, value) {
-  return (key != "" && value == meetup) ? undefined : value
-}));
+function recursList(list) {
+  if (!list.next) {
+    return [list.value]
+  } else {
+    return recursList(list.next).concat(list.value);
+  }
+}
+
+console.log(recursList(list));
