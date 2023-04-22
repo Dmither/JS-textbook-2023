@@ -1,35 +1,23 @@
-let list = {
-	value: 1,
-	next: {
-		value: 2,
-		next: {
-			value: 3,
-			next: {
-				value: 4,
-				next: null,
-			},
-		},
-	},
-};
+function sumAll(a, ...args) {
+	let sum = a;
+	for (let arg of args) sum += arg;
 
-function printList(list) {
-	let arr = [list.value];
-	let current = list;
-  while (current.next) {
-    current = current.next;
-    arr.push(current.value);
-  }
-  return arr;
+	console.log(args)
+	console.log(Object.values(arguments));
+	return sum;
 }
 
-console.log(printList(list));
 
-function recursList(list) {
-  if (!list.next) {
-    return [list.value]
-  } else {
-    return recursList(list.next).concat(list.value);
-  }
+let arr1 = [1, 2, 3]
+let arr2 = [4, 5, 6]
+let arr = [...arr1, ...arr2]
+console.log(sumAll(0, ...arr));
+
+
+let obj = {
+	a: 1,
+	b: 2,
+	c: 3,
 }
 
-console.log(recursList(list));
+console.log(...Object.values(obj))
