@@ -1,23 +1,19 @@
-function sumAll(a, ...args) {
-	let sum = a;
-	for (let arg of args) sum += arg;
+function makeArmy() {
+  let shooters = [];
 
-	console.log(args)
-	console.log(Object.values(arguments));
-	return sum;
+  for (let i = 0; i < 10; i++) {
+    shooters.push(function() { // створюємо функцію стрільця,
+      console.log( i ); // що має показувати свій номер
+		}); // додаємо її до масиву
+  }
+
+  // ...і повертаємо масив стрільців
+  return shooters;
 }
 
+let army = makeArmy();
 
-let arr1 = [1, 2, 3]
-let arr2 = [4, 5, 6]
-let arr = [...arr1, ...arr2]
-console.log(sumAll(0, ...arr));
-
-
-let obj = {
-	a: 1,
-	b: 2,
-	c: 3,
-}
-
-console.log(...Object.values(obj))
+// всі стрільці показують 10 замість своїх номерів 0, 1, 2, 3...
+army[0](); // 10 від стрільця за номером 0
+army[1](); // 10 від стрільця за номером 1
+army[9](); // 10 ...і так далі.
