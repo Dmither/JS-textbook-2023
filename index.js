@@ -1,19 +1,15 @@
-function makeArmy() {
-  let shooters = [];
+function sum(a) {
+	let csum = a;
+	function f(b) {
+		csum += b;
+		return f;
+	};
 
-  for (let i = 0; i < 10; i++) {
-    shooters.push(function() { // створюємо функцію стрільця,
-      console.log( i ); // що має показувати свій номер
-		}); // додаємо її до масиву
-  }
+	f.toString = function() {
+		return csum;
+	}
 
-  // ...і повертаємо масив стрільців
-  return shooters;
+	return f
 }
 
-let army = makeArmy();
-
-// всі стрільці показують 10 замість своїх номерів 0, 1, 2, 3...
-army[0](); // 10 від стрільця за номером 0
-army[1](); // 10 від стрільця за номером 1
-army[9](); // 10 ...і так далі.
+console.log(sum(2)(3)(4)(5).toString());
