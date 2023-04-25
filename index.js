@@ -1,15 +1,27 @@
-function sum(a) {
-	let csum = a;
-	function f(b) {
-		csum += b;
-		return f;
-	};
-
-	f.toString = function() {
-		return csum;
-	}
-
-	return f
+function slow(x) {
+	console.log(`Call from ${x}`);
+	return x;
 }
 
-console.log(sum(2)(3)(4)(5).toString());
+function cachingDecorator(func) {
+	let cache = new Map();
+
+	return function(x) {
+		if (cache.has(x)) {
+			return cache.get(x);
+		}
+
+		let result = func(x);
+
+		cache.set(x, result);
+		return result;
+	};
+}
+
+let cachingSlow = cachingDecorator(slow);
+
+console.log(cachingSlow(1));
+console.log(cachingSlow(1));
+console.log(cachingSlow(1));
+console.log(cachingSlow(2));
+console.log(cachingSlow(2));
