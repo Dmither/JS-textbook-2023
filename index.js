@@ -1,15 +1,20 @@
-function askPassword(ok, fail) {
-  let password = prompt("Пароль?", '');
-  if (password == "rockstar") ok();
-  else fail();
-}
+"use strict";
 
 let user = {
-  name: 'Іван',
-
-  login(result) {
-    alert( this.name + (result ? ' увійшов' : ' виконав невдалу спробу входу') );
-  }
+	name: "Іван",
+	toString() {
+		return this.name;
+	},
 };
 
-askPassword(user.login.bind(user, true), user.login.bind(user, false)); // ?
+Object.defineProperty(user, "name", { configurable: false });
+Object.defineProperty(user, "name", { writable: false });
+
+console.log(Object.getOwnPropertyDescriptors(user));
+
+let clone = Object.defineProperties(
+	{},
+	Object.getOwnPropertyDescriptors(user)
+);
+
+console.log(clone);
