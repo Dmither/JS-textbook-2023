@@ -1,20 +1,10 @@
-"use strict";
-
-let user = {
-	name: "Іван",
-	toString() {
-		return this.name;
-	},
+function Rabbit() {}
+Rabbit.prototype = {
+  eats: true
 };
 
-Object.defineProperty(user, "name", { configurable: false });
-Object.defineProperty(user, "name", { writable: false });
+let rabbit = new Rabbit();
 
-console.log(Object.getOwnPropertyDescriptors(user));
+delete rabbit.eats;
 
-let clone = Object.defineProperties(
-	{},
-	Object.getOwnPropertyDescriptors(user)
-);
-
-console.log(clone);
+console.log( rabbit.eats ); // true
