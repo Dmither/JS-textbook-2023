@@ -1,10 +1,10 @@
-function Rabbit() {}
-Rabbit.prototype = {
-  eats: true
-};
+function Obj() {
+  this.name = "Sam";
+  this.age = 18
+}
 
-let rabbit = new Rabbit();
+Obj.prototype = {}
 
-delete rabbit.eats;
+let obj = new Obj()
 
-console.log( rabbit.eats ); // true
+console.log(obj)
