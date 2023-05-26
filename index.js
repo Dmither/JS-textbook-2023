@@ -51,3 +51,27 @@ for (let prop in admin) {
 
 // ===================================================================
 
+function Rabbit() {
+	this.eats = true;
+}
+
+let rabbit = new Rabbit()
+
+let rabbit2 = new rabbit.constructor();
+
+// ===================================================================
+
+if (!Function.prototype.defer) {
+	Function.prototype.defer = function(delay) {
+		let func = this;
+		return function(...args) {
+		 setTimeout( () => func.apply(this, args), delay )
+		}
+	}
+}
+
+function f(a, b) {
+	console.log(a + b);
+}
+
+f.defer(1000)(1, 2);
