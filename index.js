@@ -51,27 +51,37 @@ for (let prop in admin) {
 
 // ===================================================================
 
-function Rabbit() {
-	this.eats = true;
-}
+// function Rabbit() {
+// 	this.eats = true;
+// }
 
-let rabbit = new Rabbit()
+// let rabbit = new Rabbit()
 
-let rabbit2 = new rabbit.constructor();
+// let rabbit2 = new rabbit.constructor();
 
 // ===================================================================
 
-if (!Function.prototype.defer) {
-	Function.prototype.defer = function(delay) {
-		let func = this;
-		return function(...args) {
-		 setTimeout( () => func.apply(this, args), delay )
-		}
-	}
-}
+let animal = {
+	eats: true,
+};
 
-function f(a, b) {
-	console.log(a + b);
-}
+let rabbit = Object.create(animal, {
+	jumps: {
+		value: true,
+		writable: true,
+		enumerable: true,
+		configurable: true
+	},
+});
 
-f.defer(1000)(1, 2);
+console.log(Object.getOwnPropertyDescriptor(animal, "eats"))
+
+console.log(rabbit);
+
+console.log(Object.getOwnPropertyDescriptor(rabbit, "jumps"));
+
+console.log(Object.getPrototypeOf(rabbit) === animal);
+
+let clone = Object.create(Object.getPrototypeOf(rabbit), Object.getOwnPropertyDescriptors(rabbit))
+
+console.log(clone)
