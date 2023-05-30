@@ -68,6 +68,7 @@ Null: `null`. Undefined: `undefined`.
 Логічні оператори: `&&`, `||`, `!`, `??` (об’єднання з null `a ?? b`  
 => `(a !== null && a!== undefined) ? a : b`)  
 `switch(x) {case val1: break}` якщо x === val1
+Оператор `||` повертає перше правдиве значення (result = val1 || val2)
 
 Оператори циклу: `while(b){}`,`do{}while(b)`, `for(v;b;m){}`,  
 `continue`, `break`, `break labelName` (зупинить `labelName: for(){}`)
