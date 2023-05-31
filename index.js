@@ -1,7 +1,7 @@
-let ask = (question, yes, no) => confirm(question) ? yes() : no();
-
-ask(
-  "Do you agree?",
-  () => console.log("You are agree"),
-  () => console.log("You are not agree")
-)
+function Accumulator(startingValue) {
+  this.value = startingValue;
+  this.read = function() {
+    let num = prompt();
+    this.value += isNaN(num) ? 0 : +num
+  }
+}
