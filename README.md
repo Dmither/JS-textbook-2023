@@ -227,7 +227,7 @@ Null: `null`. Undefined: `undefined`.
 `arr.reduce(func(accumulator,item,index=,array=){}, start)`, `arr.reduceRight()`  
 виконують ф-ю для кожного елемента, результат переноситься на наступну ітерацію.  
 `Array.isArray()` перевіряє чи масив.  
-Тут func() - ф-я-колбек, будь-який вид ф-ї з аргументами (item, index=, array=).  
+**Тут func() - ф-я-колбек, будь-який вид ф-ї з аргументами (item, index=, array=).**  
 Методи sort, reverse та splice змінюють поточний масив.
 
 Цикл `for..of` можуть використовувати лише ітеративні об'єкти.  
