@@ -471,3 +471,39 @@ JS не підтримує багаторазове наслідування. М
 **Міксин** - клас (об'єкт), що містить методи для інших класів.  
 `let myMixin = {method1(){}, method2(){}}` `Object.assign(MyClass.prototype, myMixin)`  
 розширяє прототип класу потрібними методами без наслідування.
+
+### Обробка помилок {1-10}
+
+`try {}` `catch(err) {}` (catch {}) `finally {}` дозволяють обробляти помилки.  
+err - об'єкт помилки, має властивості name, message та інші (н-д stack).  
+Обов'язковим є тільки try; finally виконується в будь-якому випадку.  
+`throw new MyError(message)` дає можливість генерувати власну помилку.  
+Можна передавати будь-які об'єкти, бажано наслідувані від класу Error.  
+Більшість середовищ дозволяють встановити глобальний обробник (як window.onerror)
+
+Власні класи помилок бажано наслідувати від інших вбудованих класів помилок.  
+Кастомний клас має викликати `super()` та перезаписати поле `name`.  
+Перевірка відповідності класу `err instanceof MyError` або `err.name = MyError`.
+
+### Проміси, async/await {1-11}
+
+**Асинхронні дії** починаються зараз, закінчуються пізніше (н-д лоад скриптів чи модулів).  
+При зверненні до недовантажених, недоопрацьованих даних виникає помилка.  
+Для обробки ф-й з асинхронних джерел викликаєм через колбек після обробки:
+
+```js
+function loadScript(src, callback) {
+	let script = document.createElement("script");
+	script.src = src;
+	script.onload = () => callback(null, script);
+	script.onerror = () => callback(new Error(`Error load ${src}`));
+	document.head.append(script);
+}
+loadScript("./path/script.js", function (error, script) {
+	if (error) {
+	} else {
+		scriptMethod();
+	}
+});
+// scriptMethod() Error: does not exist
+```
