@@ -489,7 +489,7 @@ err - об'єкт помилки, має властивості name, message т
 
 **Асинхронні дії** починаються зараз, закінчуються пізніше (н-д лоад скриптів чи модулів).  
 При зверненні до недовантажених, недоопрацьованих даних виникає помилка.  
-Для обробки ф-й з асинхронних джерел викликаєм через колбек після обробки:
+Для обробки ф-й з асинхронних джерел викликаєм через **колбек** після обробки:
 
 ```js
 function loadScript(src, callback) {
@@ -506,4 +506,45 @@ loadScript("./path/script.js", function (error, script) {
 	}
 });
 // scriptMethod() Error: does not exist
+```
+
+**Promise** - об'єкт, який зв'язує код-виробник і код-споживач.  
+**Виконавець** `function(resolve, reject){}` - ф-я, передана в проміс.  
+Виконується автоматично при створенні проміса. Вкінці запускає **один** з колбеків.  
+Аргументи - стандартні колбеки (допускає довільну назву):  
+`resolve(value)` викликається при успішному виконанні з результатом value;  
+`reject(error)` якщо виникла помилка, error - об'єкт помилки.  
+Внутрішні властивості проміса змінюються (очікування / успішно / помилка):  
+`state` (pending/fulfilled/rejected), `result` (undefined/value/error).  
+Для обробки результату використовуються **ф-ї-споживачі** (в довільній кількості):  
+`.then(result=>{})`, `.then(result=>{}, error=>{})` при успішному/помилковому результаті;  
+`.catch(function)`, `.catch(error=>{})` при помилковому (замість .then(null, error=>{}));  
+`.finally(()=>{})` при будь-якому результаті, не приймає аргументів, як доопрацювання.
+
+```js
+function loadScript(src) {
+	return new Promise(function (resolve, reject) {
+		let script = document.createElement("script");
+		script.src = src;
+		script.onload = () => resolve(script);
+		script.onerror = () => reject(new Error(`Error on load ${src}`));
+		document.head.append(script);
+	});
+}
+let promise = loadScript("./outer.js");
+promise.then(
+	script => console.log(`${script.src} is loaded`),
+	error => console.log(`Error: ${error}`)
+);
+```
+
+
+
+```js
+loadScript("./outer.js")
+	.then(script => loadScript("./outer2.js"))
+	.then(script => {
+		one();
+		two();
+	});
 ```

@@ -1,18 +1,29 @@
-function loadScript(src, callback) {
-  let script = document.createElement("script");
-  script.src = src;
+function loadScript(src) {
+	return new Promise(function (resolve, reject) {
+		let script = document.createElement("script");
+		script.src = src;
 
-  script.onload = () => callback(null, script);
-  script.onerror = () => callback(new Error(`Error script loadimg for ${src}`))
-  
-  document.head.append(script);
+		script.onload = () => resolve(script);
+		script.onerror = () => reject(new Error(`Error on load ${src}`));
+
+		document.head.append(script);
+	});
 }
 
-loadScript("./outer.js", function(error, script) {
-  if (error) {
-    console.log(error.name)
-  } else {
-    console.log(`The script ${script.src} is loaded`)
-    newFunction();
-  }
-})
+let promise = loadScript("./outer.js");
+
+promise.then(
+	script => console.log(`${script.src} is loaded`),
+	error => console.log(`Error: ${error}`)
+);
+
+// ==================================================================
+
+loadScript("./outer.js")
+  .then(script => loadScript("./outer2.js"))
+  .then(script => {
+    one();
+    two();
+  })
+
+console.log("Hello!");

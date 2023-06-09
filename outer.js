@@ -1,5 +1,5 @@
-console.log("outer")
+console.log("Hi from outer!")
 
-function newFunction() {
-  console.log("newFunction is done")
+function one() {
+  console.log("one")
 }
