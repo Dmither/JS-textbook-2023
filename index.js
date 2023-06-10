@@ -1,29 +1,31 @@
-function loadScript(src) {
-	return new Promise(function (resolve, reject) {
-		let script = document.createElement("script");
-		script.src = src;
-
-		script.onload = () => resolve(script);
-		script.onerror = () => reject(new Error(`Error on load ${src}`));
-
-		document.head.append(script);
+async function func() {
+	let promise = new Promise((res, rej) => {
+		res(1);
 	});
+	promise.then(console.log);
 }
 
-let promise = loadScript("./outer.js");
+func();
 
-promise.then(
-	script => console.log(`${script.src} is loaded`),
-	error => console.log(`Error: ${error}`)
-);
+async function func2() {
+	let promise = new Promise((res, rej) => {
+		res(1);
+	});
+	console.log(await promise);
+}
+func2();
 
-// ==================================================================
+// =============================================
 
-loadScript("./outer.js")
-  .then(script => loadScript("./outer2.js"))
-  .then(script => {
-    one();
-    two();
-  })
+async function loadJson(url) {
+  let response = await fetch(url);
+	if (response.status == 200) {
+		return await response.json();
+	}
+	
+	throw new Error(response.status);
 
-console.log("Hello!");
+}
+
+loadJson('https://javascript.info/no-such-user.json')
+  .catch(alert); // Error: 404
