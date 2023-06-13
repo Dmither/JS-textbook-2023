@@ -1,5 +1,9 @@
+console.log("  < outer2 ============================ >")
+
 console.log("Hi from outer-2");
 
-function two() {
+export function two() {
   console.log("two")
 }
+
+console.log("  </ outer2 =========================== >")
