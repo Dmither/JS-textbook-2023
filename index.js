@@ -1,2 +1,3 @@
-let operation = prompt();
-console.log(eval(operation))
+let table = document.querySelector("table");
+console.log(table);
+console.log(table.nodeType);
