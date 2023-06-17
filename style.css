@@ -1,4 +1,12 @@
 body {
-    background-color: #222;
-    color: #fff;
+	background-color: #222;
+	color: #fff;
+}
+
+a {
+	color: gold;
+}
+
+a[data-full] {
+	color: chartreuse;
 }
