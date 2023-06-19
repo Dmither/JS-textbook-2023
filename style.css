@@ -1,6 +1,7 @@
 body {
 	background-color: #222;
 	color: #fff;
+	font-family: Cambria, Cochin, Times, "Times New Roman", serif;
 }
 
 a {
@@ -9,4 +10,30 @@ a {
 
 a[data-full] {
 	color: chartreuse;
+}
+
+.alert {
+	margin: 25px;
+	padding: 15px;
+	border: 1px solid #d6e9c6;
+	border-radius: 4px;
+	color: #dff0d8;
+	background-color: #3c763d;
+}
+
+
+table {
+	margin-left: 25px;
+	color: #dff0d8;
+	border-collapse: collapse;
+}
+table td {
+	border: 1px solid #d6e9c6;
+	width: 40px;
+	text-align: center;
+}
+table th {
+	width: 40px;
+	border: 1px solid #d6e9c6;
+	background-color: #3c763d;
 }
