@@ -221,7 +221,7 @@ Null: `null`. Undefined: `undefined`.
 `arr.find(func())`, `arr.findIndex(func())` повертає поточний елемент (індекс) при true.  
 `arr.filter(func())` повертає масив елементів, для яких true.  
 `arr.map(func())` викликає ф-ю для кожного елемента та повертає масив результатів.  
-`arr.sort(sortFunc)`_ сортує масив відповідно ф-ї (< = >) (-1 0 1).  
+`arr.sort(sortFunc)`_ сортує масив відповідно ф-ї (< = >) (-n 0 n).  
 `arr.reverse()`\* повертає зворотний масив.  
 `s.split(del="")` розділяє рядок. `arr.join(del="", len=all)` поєднує в рядок.  
 `arr.reduce(func(accumulator,item,index=,array=){}, start)`, `arr.reduceRight()`  
@@ -738,3 +738,12 @@ Math.max `scrollHeight`, `offsetHeight`, `clientHeight` **body** та **document
 Шаблон **делегування** дозволяє обробляти події багатьох елементів одним обробником.  
 До обробника event.target (event.target.closest(smth)) передається спливанням.  
 При виконанні умов до цілі обробник виконує відповідні дії.
+
+Запобігти типовим діям: `event.preventDefault()` або `return false` (не для слухачів).  
+Параметр `passive: true` для слухачів повідомляє браузеру, що дія не буде скасованою.  
+При скасуванні типової дії значення `event.defaultPrevented` стає `true`.
+
+Створити об'єкт події `new EventClass(name, options)`: name - довільне ім'я події;  
+options - об'єкт з властивостями bubbles (вспливає) та cancelable (працює preventDefault).  
+Для кастомних подій - CustomEvent. Має додаткову опцію details із даними щодо події.  
+Ручний запуск події `elem.despatchEvent(event)`. Зручно для автоматичного тестування.

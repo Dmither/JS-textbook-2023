@@ -80,3 +80,19 @@ body {
 	right: 5px;
 	cursor: pointer;
 }
+
+#grid {
+	margin: 10px;
+	background-color: #444;
+	border-collapse: collapse;
+}
+
+#grid th, #grid td {
+	border: 1px solid #3c763d;
+}
+
+#grid th:hover {
+	background-color: #3c763d;
+	cursor: pointer;
+}
+
