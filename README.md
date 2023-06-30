@@ -687,7 +687,7 @@ HTML/XML документ представляється в браузері я�
 Створення вузлів: `document.createElement(tag)`, `document.createTextNode(value)`.  
 Клонування: `.cloneNode(deep=false)`, при true клонує з усіма нащадками.  
 `.append/prepend/before/after(...nodes or strs)` вставка вкінці/напочатку/до/після.  
-`.replaceWith(...nodes or strs)` заміняє вузол, `.remove` видаляє вузол.  
+`.replaceWith(...nodes or strs)` заміняє вузол, `.remove()` видаляє вузол.  
 `.insertAdjacentHTML/Text/Element(place, value)` вставляє HTML/текст/елемент. Place:  
 "beforebegin", "afterbegin", "beforeend", "afterend".  
 `document.write(html)` додає HTML на сторінку до її завантаження.
