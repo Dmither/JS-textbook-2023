@@ -747,3 +747,20 @@ Math.max `scrollHeight`, `offsetHeight`, `clientHeight` **body** та **document
 options - об'єкт з властивостями bubbles (вспливає) та cancelable (працює preventDefault).  
 Для кастомних подій - CustomEvent. Має додаткову опцію details із даними щодо події.  
 Ручний запуск події `elem.despatchEvent(event)`. Зручно для автоматичного тестування.
+<<<<<<< HEAD
+
+### Події інтерфейсу {2-3}
+
+`mousedown/mouseup` натискання/відпускання клавіші миші над об'єктом.  
+`mouseover/mouseout` курсор заходить/покидає елемент.  
+`mousemove` кожне переміщення курсору над елементом.  
+`click` після mousedown та mouseup над одним елементом.  
+`dblclick` після двох кліків за короткий час над одним елементом.  
+`contextmenu` після виклику контекстного меню (правою кнопкою або клавіатури).  
+Властивість `event.button` повертає номер кнопки-ініціатора (0-4).  
+Модифікатори події `.shiftKey`, `.altKey`, `.ctrlKey`, `.metaKey` мають true при події  
+з відповідною затиснутою клавішою *Shift*, *Alt/Opt*, *Ctrl*, *Cmd*.  
+Координати події `.clientX/Y` та `.pageX/Y` відносно вікна та документа.  
+Просте запобігання виділенню текста - event.preventDefault() для mousedown.
+=======
+>>>>>>> ea89b22d707efe1265f246717c9ce83bbae4b1ad
