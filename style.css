@@ -4,95 +4,22 @@ body {
 	font-family: Cambria, Cochin, Times, "Times New Roman", serif;
 }
 
-.field {
-	margin: 10px 10px;
-	width: 300px;
-	height: 200px;
-	background-color: #3c763d;
-	position: relative;
-	border-top: 10px solid #444;
-	border-left: 20px solid #444;
-	border-bottom: 10px solid #444;
-	border-right: 20px solid #444;
-}
-
-.ball {
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	background-color: #fff;
-	position: absolute;
-	left: 0;
-	top: 0;
-	transition: all 0.3s ease 0s;
-}
-
-.spoiler {
-	margin: 10px;
+.list {
 	padding: 10px;
-	background-color: #444;
+	background-color: #000;
 	width: -webkit-max-content;
 	width: -moz-max-content;
 	width: max-content;
+	display: flex;
+	flex-direction: column;
 }
-.spoiler-head {
-	position: relative;
-	padding: 0 15px;
+.list li {
 	cursor: pointer;
+	display: inline-block;
 }
-.spoiler-head::before {
-	position: absolute;
-	top: 5px;
-	left: 0;
-	content: "";
-	width: 0;
-	height: 0;
-	border-top: 5px solid transparent;
-	border-bottom: 5px solid transparent;
-	border-left: 10px solid #3c763d;
+.list li:hover {
+	background-color: brown;
+} 
+.list li.active {
+	background-color: chocolate;
 }
-.spoiler-body {
-	display: none;
-}
-
-.spoiler._active .spoiler-head::before{
-	transform: rotate(90deg);
-}
-.spoiler._active .spoiler-body {
-	display: block;
-}
-
-.card {
-	padding: 5px 10px;
-	margin: 10px;
-	background-color: #3c763d;
-	width: 250px;
-	position: relative;
-}
-.card-title {
-	margin-bottom: 5px;
-}
-.card-content {
-}
-.card-exit {
-	position: absolute;
-	top: 5px;
-	right: 5px;
-	cursor: pointer;
-}
-
-#grid {
-	margin: 10px;
-	background-color: #444;
-	border-collapse: collapse;
-}
-
-#grid th, #grid td {
-	border: 1px solid #3c763d;
-}
-
-#grid th:hover {
-	background-color: #3c763d;
-	cursor: pointer;
-}
-
