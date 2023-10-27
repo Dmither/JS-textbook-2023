@@ -1,20 +1,9 @@
-let items = document.querySelectorAll(".list li");
+let counter = 0;
 
-Array.from(items).forEach((item, index, array) => {
-  item.addEventListener("click", function(event) {
-    if (!event.ctrlKey && !event.metaKey) {
-      array.forEach(element => {
-        element.classList.remove("active");
-      });
-      event.target.classList.add("active");
-    } else {
-      event.target.classList.toggle("active");
-    }
-  })
-})
-Array.from(items).forEach(item => {
-  item.addEventListener("mousedown", function(event) {
-    event.preventDefault();
-  })
-})
-
+label1: for (let i = 0; i <= 10; i++) {
+	for (let j = 1; j <= 10; j++) {
+    counter++;
+		if (i >= 5 && j >= 3) break label1;
+	}
+}
+console.log(counter)
